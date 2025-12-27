@@ -5,10 +5,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './routes/Routes.jsx';
+import ShopContextProvider from './context/ShopContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+   <ShopContextProvider>
+    <RouterProvider router={router} />
+   </ShopContextProvider>
   </StrictMode>,
 )
