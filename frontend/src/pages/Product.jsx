@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { useParams } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import RelatedProducts from '../components/RelatedProducts';
 
 
 
@@ -85,6 +86,24 @@ const Product = () => {
                 </div>
                </div>
             </div>
+
+            {/* description and review section */}
+            <div className='mt-20'>
+                <div className='flex'>
+                    <b className='text-sm border px-5 py-3 border-gray-300'>Description</b>
+                    <p className='text-sm border px-5 py-3 border-gray-300'>Reviews (122)</p>
+
+                </div>
+
+                <div className='flex flex-col gap-4 border p-6 text-sm text-gray-500 border-gray-300'>
+                       <p>This product is designed to combine modern style with everyday comfort. Crafted from high-quality materials, it offers a soft feel, a flattering fit, and long-lasting durability. Whether you’re dressing for a casual day out or a special occasion, this piece adds effortless elegance to your wardrobe.</p>
+                       <p>Thoughtfully made with attention to detail, it pairs easily with a variety of outfits and styles. Its versatile design makes it a reliable choice for regular wear, ensuring you look confident and comfortable throughout the day.</p>
+                </div>
+
+            </div>
+
+            {/* -------display related products */}
+            <RelatedProducts category={productData.category} subCategory={productData.subCategory}></RelatedProducts>
         </div>
     ): <div className='opacity-0'></div>
 };
