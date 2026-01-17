@@ -3,10 +3,12 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-    const {products, cartItems, currency,updateQuantity } = useContext(ShopContext)
     const [cartData, setCartData] = useState([])
+     const navigate = useNavigate()
+    const {products, cartItems, currency,updateQuantity } = useContext(ShopContext)
 
     console.log("cartItems: ", cartItems);
     useEffect(()=>{
@@ -61,7 +63,7 @@ const Cart = () => {
                 <div className='w-full sm:w-112.5'>
                     <CartTotal></CartTotal>
                     <div className='w-full text-end'>
-                        <button className='bg-black px-8 py-3 my-8 text-white text-sm active:bg-gray-700 cursor-pointer'>PROCEED TO CHECKOUT</button>
+                        <button onClick={()=> navigate('/place-order')} className='bg-black px-8 py-3 my-8 text-white text-sm active:bg-gray-700 cursor-pointer'>PROCEED TO CHECKOUT</button>
                     </div>
                      
                 </div>

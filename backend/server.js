@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDB from './config/monogdb.js';
 import connectCloudinary from './config/cloudinary.js';
 import userRouter from './routes/user.js';
+import productRouter from './routes/product.js';
 
 // App configuration
 const app = express()
@@ -19,6 +20,7 @@ app.use(cors())
 // API endpoints
 
 app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
 
 app.get("/", (req, res)=>{
     res.send("API working")
