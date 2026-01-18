@@ -4,12 +4,13 @@ export const AdminContext = createContext()
 const AdminContextProvider = ({children}) => {
 
       const [token, setToken] = useState(localStorage.getItem('token')? localStorage.getItem('token') : "");
+      const currency = "$"
 
   useEffect(()=>{
     localStorage.setItem('token', token)
   }, [token])
 
-    const value = {token, setToken}
+    const value = {token, setToken, currency}
     return (
         <AdminContext.Provider value={value}>
             {children}
