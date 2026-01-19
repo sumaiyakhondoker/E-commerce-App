@@ -10,9 +10,10 @@ const Cart = () => {
      const navigate = useNavigate()
     const {products, cartItems, currency,updateQuantity } = useContext(ShopContext)
 
-    console.log("cartItems: ", cartItems);
+    
     useEffect(()=>{
-        const tempData = []
+        if(products.length > 0){
+            const tempData = []
         for(const items in cartItems){
             for(const item in cartItems[items]){
                 if (cartItems[items][item] > 0) {
@@ -26,7 +27,11 @@ const Cart = () => {
         }
         setCartData(tempData)
         console.log(tempData);
-    },[cartItems])
+        }
+        
+    },[cartItems, products])
+
+    console.log("cartItems: ", cartItems);
     return (
        
         <div className='border-t pt-14'>

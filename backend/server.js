@@ -5,6 +5,7 @@ import connectDB from './config/monogdb.js';
 import connectCloudinary from './config/cloudinary.js';
 import userRouter from './routes/user.js';
 import productRouter from './routes/product.js';
+import cartRouter from './routes/cart.js';
 
 // App configuration
 const app = express()
@@ -21,6 +22,7 @@ app.use(cors())
 
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
+app.use('/api/cart', cartRouter)
 
 app.get("/", (req, res)=>{
     res.send("API working")
