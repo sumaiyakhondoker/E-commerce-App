@@ -26,12 +26,12 @@ const Cart = () => {
             }
         }
         setCartData(tempData)
-        console.log(tempData);
+        // console.log(tempData);
         }
         
     },[cartItems, products])
 
-    console.log("cartItems: ", cartItems);
+    // console.log("cartItems: ", cartItems);
     return (
        
         <div className='border-t pt-14'>

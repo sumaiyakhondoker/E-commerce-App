@@ -87,6 +87,7 @@ const ShopContextProvider = ({children}) => {
     let totalAmount = 0;
     for(const items in cartItems){
         const itemInfo = products.find(product => product._id === items)
+        // console.log(itemInfo);
         for(const item in cartItems[items]){
             try {
                 if(cartItems[items][item] > 0){
@@ -95,6 +96,7 @@ const ShopContextProvider = ({children}) => {
                 
             } catch (error) {
                 console.log('Error in getCartAmount function', error);
+                toast.error(error.message)
             }
         }
 
@@ -131,7 +133,7 @@ const ShopContextProvider = ({children}) => {
    
    useEffect(()=>{
     getProductData()
-   },[])
+   },[products])
 
    useEffect(()=>{
     if(!token && localStorage.getItem('token')){
