@@ -3,7 +3,8 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import axios, { all } from 'axios';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Orders = () => {
     const {backendUrl, token, currency} = useContext(ShopContext)
@@ -31,7 +32,8 @@ const Orders = () => {
             setOrderData(allOrdersItem.reverse());
             }
         } catch (error) {
-            
+            console.log(error);
+            toast.error(error.message)
         }
     }
 
