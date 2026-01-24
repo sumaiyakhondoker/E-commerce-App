@@ -11,6 +11,7 @@ import Login from '../pages/Login'
 import PlaceOrder from '../pages/PlaceOrder'
 import Orders from '../pages/Orders'
 import Contact from '../pages/Contact'
+import Verify from "../pages/Verify";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
         {
           path:'/place-order',
           element: <PlaceOrder></PlaceOrder>
+        },
+        {
+          path:'/verify',
+          element: <Verify></Verify>
         },
         {
           path:'/login',
